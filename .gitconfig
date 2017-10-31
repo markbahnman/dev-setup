@@ -1,0 +1,10 @@
+# This is Git's per-user configuration file.
+[core]
+# Please adapt and uncomment the following lines:
+	user = Mark Bahnman
+	email = mark.bahnman@gmail.com
+[user]
+	name = Mark Bahnman
+	email = mark.bahnman@gmail.com
+[credential]
+	helper = osxkeychain
