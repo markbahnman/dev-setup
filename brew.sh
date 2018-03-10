@@ -40,7 +40,7 @@ sudo bash -c 'echo /usr/local/bin/zsh >> /etc/shells'
 chsh -s /usr/local/bin/zsh
 
 # Install `wget` with IRI support.
-brew install wget --with-iri
+brew install wget
 brew install httpie
 
 # Install Python
@@ -54,7 +54,7 @@ brew install python3
 # grep -q "$LINE" ~/.extra || echo "$LINE" >> ~/.extra
 
 # Install more recent versions of some OS X tools.
-brew install vim --override-system-vi
+brew install vim --with-override-system-vi
 brew install macvim
 brew install homebrew/dupes/grep
 brew install homebrew/dupes/openssh
