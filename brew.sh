@@ -19,7 +19,7 @@ fi
 brew update
 
 # Upgrade any already-installed formulae.
-brew upgrade --all
+brew upgrade
 
 # Install GNU core utilities (those that come with OS X are outdated).
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
@@ -45,7 +45,7 @@ brew install httpie
 
 # Install Python
 brew install python
-brew install python3
+# brew install python3 
 
 # Install ruby-build and rbenv
 # brew install ruby-build
@@ -56,9 +56,9 @@ brew install python3
 # Install more recent versions of some OS X tools.
 brew install vim --with-override-system-vi
 brew install macvim
-brew install homebrew/dupes/grep
-brew install homebrew/dupes/openssh
-brew install homebrew/dupes/screen
+# brew install homebrew/dupes/grep
+# brew install homebrew/dupes/openssh
+# brew install homebrew/dupes/screen
 # brew install homebrew/php/php55 --with-gmp
 
 # Install font tools.
@@ -90,15 +90,15 @@ brew install pkg-config libffi
 # heroku update
 
 # Core casks
-brew cask install --appdir="/Applications" alfred
-brew cask install --appdir="~/Applications" iterm2
-brew cask install --appdir="~/Applications" java
-brew cask install --appdir="~/Applications" xquartz
+# brew cask install --appdir="/Applications" alfred
+# brew cask install --appdir="~/Applications" iterm2
+# brew cask install --appdir="~/Applications" java
+# brew cask install --appdir="~/Applications" xquartz
 
 # Development tool casks
-brew cask install --appdir="/Applications" virtualbox
-brew cask install --appdir="/Applications" vagrant
-brew cask install --appdir="/Applications" macdown
+# brew cask install --appdir="/Applications" virtualbox
+# brew cask install --appdir="/Applications" vagrant
+# brew cask install --appdir="/Applications" macdown
 
 # Install data stores
 brew install mysql
@@ -108,18 +108,18 @@ brew install redis
 brew install elasticsearch
 
 # Misc casks
-brew cask install --appdir="/Applications" google-chrome
-brew cask install --appdir="/Applications" firefox
-brew cask install --appdir="/Applications" slack
-brew cask install --appdir="/Applications" dropbox
-brew cask install --appdir="/Applications" 1password
+# brew cask install --appdir="/Applications" google-chrome
+# brew cask install --appdir="/Applications" firefox
+# brew cask install --appdir="/Applications" slack
+# brew cask install --appdir="/Applications" dropbox
+# brew cask install --appdir="/Applications" 1password
 
 #Remove comment to install LaTeX distribution MacTeX
 #brew cask install --appdir="/Applications" mactex
 
 # Install Docker, which requires virtualbox
-brew install docker
-brew install boot2docker
+# brew install docker
+# brew install boot2docker
 
 # Install developer friendly quick look plugins; see https://github.com/sindresorhus/quick-look-plugins
 # brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook suspicious-package
