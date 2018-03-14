@@ -110,7 +110,7 @@ nnoremap <silent> <Leader>rts :call TrimWhiteSpace()<CR>
 autocmd FileWritePre    * :call TrimWhiteSpace()
 autocmd FileAppendPre   * :call TrimWhiteSpace()
 autocmd FilterWritePre  * :call TrimWhiteSpace()
-" autocmd BufWritePre     * :call TrimWhiteSpace()
+autocmd BufWritePre     * :call TrimWhiteSpace()
 
 "start mapped commands with ,
 let mapleader=',' " lead
@@ -120,8 +120,12 @@ set showmatch
 
 " Use prettier to format javascript
 let g:prettier#autoformat = 0
+let g:prettier#config#trailing_comma = 'none'
+" let g:prettier#config#config_precedence = 'prefer-file'
 let g:prettier#config#single_quote = 'true'
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql PrettierAsync
+let g:prettier#config#bracket_spacing = 'true'
+" autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql Prettier
+autocmd BufWritePre *.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md Prettier
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VIM VROOM SETTINGS
@@ -271,6 +275,7 @@ let g:ctrlp_working_path_mode = 'ra'
 " Wildignore is only used when not using user_command
 " Use find for listing files
 " let g:ctrlp_user_command = 'find %s -type f'
+let g:ctrlp_custom_ignore = { 'dir': '\v[\/](lib|dist)$' }
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " WILDIGNORES
@@ -320,22 +325,24 @@ let g:zipPlugin_ext = '*.zip,*.jar,*.xpi,*.ja,*.war,*.ear,*.celzip,*.oxt,*.kmz,*
 " SYNTASTIC SYNTAX HIGHLIGHTING
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Synstatic recommended settings for new users
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 "
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
-let g:syntastic_javascript_checkers = ['jsxhint']
+let g:syntastic_javascript_checkers = ['eslint']
 
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
 let g:syntastic_coffee_checkers = ['coffeelint', 'coffee']
 
 let g:syntastic_go_checkers = ['golint']
+
+let g:syntastic_javascript_eslint_exe = 'eslint --config .eslintrc.json'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SCALA SHORTCUTS
@@ -368,6 +375,20 @@ nmap <silent> <leader>gg <Plug>(go-get)
 
 au FileType go imap <c-l> <space>:=<space>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" JSDOC
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:jsdoc_allow_input_prompt = 1
+let g:jsdoc_input_description = 1
+let g:jsdoc_enable_es6 = 1
+let g:jsdoc_underscore_private = 1
+nmap <silent> <C-u> <Plug>(jsdoc)
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" HACKER NEWS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap <silent> <leader>hn :HackerNews<CR>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " TEMP COMMANDS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap <silent> <leader>pr :!pr-enforcer<CR>
+nmap <silent> <leader>gk :!ginkgo test/integration<CR>
 au BufEnter /private/tmp/crontab.* setl backupcopy=yes
